@@ -10,7 +10,7 @@ const DarkMode = {
       
       if (this.mode)  {
         this.updateBodyClasses('dark', 'light');
-        this.buttonDarkMode.src = '/assets/sun.svg';
+        this.buttonDarkMode.src = './assets/sun.svg';
         this.mode = 0;
       } else {
         this.updateBodyClasses('light', 'dark');
