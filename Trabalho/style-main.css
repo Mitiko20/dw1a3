@@ -82,13 +82,39 @@ a {
 }
 
 /* Resposive ===================== */
-@media (min-width: 800px) {
+@media (max-width: 800px) {
     html {
         font-size: 87.5%;
     }
 
     #cofre-imagem{
         width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 412px) {
+    html {
+        font-size: 100%;
+    }
+
+    .message {
+        flex: .8;
+        padding: 0;
+    }
+    
+    .message p {
+        font-size: 16px;
+        margin-bottom: 0px;
+    }
+    
+    .image {
+        flex: .5;
+        text-align: center;
+    }
+
+    #cofre-imagem{
+        width: 55%;
         height: auto;
     }
 }
