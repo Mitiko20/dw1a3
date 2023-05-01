@@ -42,13 +42,6 @@ main {
 .image {
     flex: 1;
     text-align: center;
-    width: 100%;
-    max-width: 100px;
-}
-
-#cofre-imagem{
-    width: 100%;
-    height: auto;
 }
 
 .message {
@@ -92,5 +85,10 @@ a {
 @media (min-width: 800px) {
     html {
         font-size: 87.5%;
+    }
+
+    #cofre-imagem{
+        width: 80%;
+        height: auto;
     }
 }
