@@ -14,7 +14,7 @@ const DarkMode = {
         this.mode = 0;
       } else {
         this.updateBodyClasses('light', 'dark');
-        this.buttonDarkMode.src = '/assets/moon.svg';
+        this.buttonDarkMode.src = './assets/moon.svg';
         this.mode = 1;
       }
     },
@@ -24,11 +24,11 @@ const DarkMode = {
   
       if (mode) {
         this.updateBodyClasses('dark', 'light');
-        this.buttonDarkMode.src = '/assets/sun.svg';
+        this.buttonDarkMode.src = './assets/sun.svg';
         this.mode = 0;
       } else {
         this.updateBodyClasses('light', 'dark');
-        this.buttonDarkMode.src = '/assets/moon.svg';
+        this.buttonDarkMode.src = './assets/moon.svg';
         this.mode = 1;
       }
     },
