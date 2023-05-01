@@ -1,5 +1,5 @@
 <h1 align="center">
-  dev.finances$
+  dev.finance$
 </h1>
 
 <br>
