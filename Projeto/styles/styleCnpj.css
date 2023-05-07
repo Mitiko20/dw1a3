@@ -1,0 +1,50 @@
+/* Global ===================== */
+:root {
+    --dark-blue: #363f5f;
+    --dark-green: #adc0a7;
+    --light-green: #49aa26;
+    --light: #f0f2f5;
+    --white: #ffffff;
+    --green: #008000;
+}
+
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--light);
+    font-family:'Poppins', sans-serif;
+}
+
+/* Header ===================== */
+header {
+    background: var(--dark-green);
+    padding: 2rem 0 2rem;
+    text-align: center;
+}
+
+header h1{
+    color: var(--light);
+    font-size: 24px;
+}
+
+
+/* Footer ===================== */
+
+footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--dark-blue);
+
+    opacity: 0.6;
+}
+
+a {
+    color: var(--light-green);
+    text-decoration: none;
+}
+
+/* Resposive ===================== */
