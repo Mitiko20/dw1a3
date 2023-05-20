@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Visualizador de Propriedade CSS</title>
+</head>
+<body>
+    <header>
+        <p>IFSP - Desenvolvimento Web I</p>
+    </header>
+
+    <main class="container">
+        <h1>Visualizador CSS: Text-Transform</h1>
+        <textarea id="textInput" placeholder="Digite seu texto aqui"></textarea>
+        <section class="options">
+            <label>
+                <input type="radio" name="transformOption" value="none" checked>
+                None
+            </label><br>
+
+            <label>
+                <input type="radio" name="transformOption" value="capitalize">
+                Capitalize
+            </label><br>
+
+            <label>
+                <input type="radio" name="transformOption" value="uppercase">
+                Uppercase
+            </label><br>
+
+            <label>
+                <input type="radio" name="transformOption" value="lowercase">
+                Lowercase
+            </label><br>
+        </section>
+        
+        <section class="result">
+            <h2>Resultado:</h2>
+            <p id="transformedText"></p>
+        </section>
+    </main>
+
+    <footer>
+            <p>Atividade 9</p>
+            <p><a href="https://github.com/Mitiko20">Linkedin</a></p>
+    </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
