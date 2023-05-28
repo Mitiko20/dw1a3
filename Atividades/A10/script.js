@@ -96,24 +96,6 @@ function validarPhone(phone) {
     return true;
 }
 
-// Validação do campo nome
-function validarNome(nome) {
-    var regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
-    return regex.test(nome);
-}
-
-// Validação do campo país
-function validarPais(pais) {
-    var regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
-    return regex.test(pais);
-}
-
-// Validação do campo bairro
-function validarBairro(bairro) {
-    var regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
-    return regex.test(bairro);
-}
-
 // Estiliza os campos inválidos
 function aplicarEstilosCamposInvalidos() {
     var form = document.getElementById('myForm');
@@ -171,6 +153,7 @@ dataNascimentoInput.addEventListener('blur', function (event) {
     }
     aplicarEstilosCamposInvalidos();
 });
+
 
 // Aplica estilos nos campos inválidos ao enviar o formulário
 var form = document.getElementById('myForm');
