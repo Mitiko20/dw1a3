@@ -163,3 +163,13 @@ form.addEventListener('submit', function (event) {
         event.preventDefault();
     }
 });
+
+//Alerta de que o formulário foi enviado com sucesso
+form.addEventListener('submit', function (event) {
+    aplicarEstilosCamposInvalidos();
+    if (!form.checkValidity()) {
+        event.preventDefault();
+    } else {
+        alert('Formulário enviado com sucesso!');
+    }
+});
