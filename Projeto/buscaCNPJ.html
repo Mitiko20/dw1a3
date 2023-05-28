@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles/styleCep.css">
+        <link rel="stylesheet" href="./styles/styleCnpj.css">
         <title>Busca CNPJ</title>
     </head>
 <body>
@@ -14,7 +14,54 @@
     </header>
 
     <main>
-        
+        <section class="painel formulario" data-form="form">
+            <form action="" id="buscaCnpj">
+                <label for="cnpj">Digite um CNPJ</label>
+                <br>
+                <input type="text" name="cnpj" id="cnpj" class="borderRed">
+                <input type="button" value="Buscar" id="btnCnpj" data-modal="abrircnpj">
+            </form>
+        </section>
+    
+        <section class="resultadosDados" data-form="form">
+            <div class="resultadoCnpj box-info">
+                <h1>Rua</h1>
+                <div id="logradouro" class="info"></div>
+            </div>
+            <div class="resultadoCnpj box-info">
+                <h1>Bairro</h1>
+                <div id="bairro" class="info"></div>
+            </div>
+            <div class="resultadoCnpj box-info">
+                <h1>Complemento</h1>
+                <div id="complemento" class="info"></div>
+            </div>
+            <div class="resultadoCnpj box-info">
+                <h1>CEP</h1>
+                <div id="cep" class="info"></div>
+            </div>
+            <div class="resultadoCnpj box-info">
+                <h1>Localidade</h1>
+                <div id="localidade" class="info"></div>
+            </div>
+            <div class="resultadoCnpj box-info">
+                <h1>UF</h1>
+                <div id="uf" class="info"></div>
+            </div>
+        </section>
+    
+        <section class="box_img">
+            <img src="./images/search-map.png" alt="Procurando localizacao" class="img1">
+            <img src="./images/founded-location.png" alt="Encontrou a localizacao" class="img2">
+            <img src="./images/error-404.png" alt="Errou o Cnpj" class="img3">
+        </section>
+    
+        <section class="modal-container" data-modal="containercnpj">
+            <div class="modal">
+                <button data-modal="fecharcnpj" class="fechar">x</button>
+                <h1>DIGITE UM CNPJ</h1>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -24,6 +71,7 @@
         </section>
     </footer>
 
+    <script src="scriptcnpj.js"></script>
 
 </body>
 </html>

@@ -1,19 +1,21 @@
-function initFetchCep() {
-    const inputCep = document.getElementById('cep');
-    const btnCep = document.getElementById('btnCep')
+function initFetchCnpj() {
+    const inputCnpj = document.getElementById('cnpj');
+    const btnCnpj = document.getElementById('btnCnpj')
     const box = document.querySelectorAll('.info')
     const img = document.querySelector('.img1')
     const img2 = document.querySelector('.img2')
     const img3 = document.querySelector('.img3')
 
-    btnCep.addEventListener('click', handleClick);
+    btnCnpj.addEventListener('click', handleClick);
 
     function handleClick(event) {
         event.preventDefault();
 
-        function buscaCep(cep) {
-            var cep = inputCep.value;
-            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        function buscaCnpj(cnpj) {
+            var cnpj = inputCnpj.value;
+            fetch(`https://receitaws.com.br/v1/cnpj/${cnpj}`, {
+                method: 'GET'
+            })
                 .then(response => response.json())
                 .then(body => {
                     if (body.erro) {
@@ -21,16 +23,16 @@ function initFetchCep() {
                         img3.style.display = "flex";
                         img.style.display = "none";
                     } else {
-                        const nomeRua = document.getElementById('nomeRua')
-                        const nomeBairro = document.getElementById('nomeBairro')
+                        const logradouro = document.getElementById('logradouro')
+                        const bairro = document.getElementById('bairro')
                         const complemento = document.getElementById('complemento')
-                        const ibge = document.getElementById('ibge')
+                        const cep = document.getElementById('cep')
                         const localidade = document.getElementById('localidade')
                         const uf = document.getElementById('uf')
-                        nomeRua.innerText = body.logradouro;
-                        nomeBairro.innerText = body.bairro;
+                        logradouro.innerText = body.logradouro;
+                        bairro.innerText = body.bairro;
                         complemento.innerText = body.complemento;
-                        ibge.innerText = body.ibge;
+                        cep.innerText = body.cep;
                         localidade.innerText = body.localidade;
                         uf.innerText = body.uf;
                         img2.style.display = "flex";
@@ -41,13 +43,13 @@ function initFetchCep() {
                     img2.style.display = "none";
                     img.style.display = "none";
                     img3.style.display = "flex";
-                })
+                })      
         }
-        buscaCep(cep);
+        buscaCnpj(cnpj);
     }
 
     function isEmpty() {
-        if (document.getElementById("cep").value == "") {
+        if (document.getElementById("cnpj").value == "") {
             img2.style.display = "none";
             img3.style.display = "none";
             img.style.display = "flex";
@@ -56,17 +58,17 @@ function initFetchCep() {
     }
     isEmpty()
 }
-initFetchCep()
+initFetchCnpj()
 
-function initModal() {
-    const botaoAbrir = document.querySelector('[data-modal="abrir"]');
-    const botaoFechar = document.querySelector('[data-modal="fechar"]');
-    const containerModal = document.querySelector('[data-modal="container"]');
+function initModalCnpj() {
+    const botaoAbrir = document.querySelector('[data-modal="abrircnpj"]');
+    const botaoFechar = document.querySelector('[data-modal="fecharcnpj"]');
+    const containerModal = document.querySelector('[data-modal="containercnpj"]');
     const modal = document.querySelector('.modal h1')
 
     if (botaoAbrir && botaoFechar && containerModal) {
         function abrirModal(event) {
-            if (document.getElementById("cep").value == "") {
+            if (document.getElementById("cnpj").value == "") {
                 event.preventDefault();
                 containerModal.classList.add('ativo')
             }
@@ -87,4 +89,4 @@ function initModal() {
         containerModal.addEventListener('click', cliqueFora);
     }
 }
-initModal()
+initModalCnpj()
