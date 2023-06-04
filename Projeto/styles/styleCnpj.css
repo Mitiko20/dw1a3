@@ -23,12 +23,58 @@ body {
 header {
     background: var(--dark-green);
     padding: 2rem 0 2rem;
-    text-align: center;
 }
 
 header h1{
     color: var(--light);
     font-size: 24px;
+    text-align: center;
+}
+
+header button{
+    border: none;
+    background-color: transparent;
+    float: right;
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+#btnMenu {
+    border-left: none;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--green);
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    border: none
+    
+}
+
+#btnMenu:hover {
+    background-color: var(--light-green);
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+#btnCep {
+    border-left: none;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--green);
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    border: none
+}
+
+
+#btnCep:hover {
+    background-color: var(--light-green);
+    transition: 0.5s;
+    opacity: 0.7;
 }
 
 .painel {
@@ -90,6 +136,10 @@ header h1{
     flex-wrap: wrap;
 }
 
+.resultadosDados h1{
+    text-align: center;
+}
+
 .box-info {
     margin-top: 10px;
     margin-right: 30px;
@@ -98,7 +148,7 @@ header h1{
 .info {
     border: 2px solid var(--green);
     padding: 10px 30px;
-    margin: 15px 0;
+    margin: 15px;
     border-radius: 2px;
     color: var(--green);
     font-family: 'Poppins', sans-serif;

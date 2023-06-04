@@ -13,9 +13,8 @@ function initFetchCnpj() {
 
         function buscaCnpj(cnpj) {
             var cnpj = inputCnpj.value;
-            fetch(`https://receitaws.com.br/v1/cnpj/${cnpj}`, {
-                method: 'GET'
-            })
+
+            fetch(`https://brasilapi.com.br/api/cnpj/v1/${cnpj}`)
                 .then(response => response.json())
                 .then(body => {
                     if (body.erro) {
@@ -23,17 +22,23 @@ function initFetchCnpj() {
                         img3.style.display = "flex";
                         img.style.display = "none";
                     } else {
+                        const razao_social = document.getElementById('razao_social')
+                        const nome_fantasia = document.getElementById('nome_fantasia')
+                        const descricao_situacao_cadastral = document.getElementById('descricao_situacao_cadastral')
                         const logradouro = document.getElementById('logradouro')
-                        const bairro = document.getElementById('bairro')
                         const complemento = document.getElementById('complemento')
                         const cep = document.getElementById('cep')
-                        const localidade = document.getElementById('localidade')
+                        const bairro = document.getElementById('bairro')
+                        const municipio = document.getElementById('municipio')
                         const uf = document.getElementById('uf')
+                        razao_social.innerText = body.razao_social;
+                        nome_fantasia.innerText = body.nome_fantasia;
+                        descricao_situacao_cadastral.innerText = body.descricao_situacao_cadastral;
                         logradouro.innerText = body.logradouro;
-                        bairro.innerText = body.bairro;
                         complemento.innerText = body.complemento;
                         cep.innerText = body.cep;
-                        localidade.innerText = body.localidade;
+                        bairro.innerText = body.bairro;
+                        municipio.innerText = body.municipio;
                         uf.innerText = body.uf;
                         img2.style.display = "flex";
                         img.style.display = "none";
