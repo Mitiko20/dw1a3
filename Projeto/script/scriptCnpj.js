@@ -1,7 +1,9 @@
+/**CNPJ**/
+
 function initFetchCnpj() {
     const inputCnpj = document.getElementById('cnpj');
     const btnCnpj = document.getElementById('btnCnpj')
-    const box = document.querySelectorAll('.info')
+    const box = document.querySelectorAll('.infoCnpj')
     const img = document.querySelector('.img1')
     const img2 = document.querySelector('.img2')
     const img3 = document.querySelector('.img3')
@@ -21,6 +23,7 @@ function initFetchCnpj() {
                         img2.style.display = "none";
                         img3.style.display = "flex";
                         img.style.display = "none";
+                        clearDataCnpj(); //limpar os campos preenchidos
                     } else {
                         const razao_social = document.getElementById('razao_social')
                         const nome_fantasia = document.getElementById('nome_fantasia')
@@ -53,7 +56,7 @@ function initFetchCnpj() {
         buscaCnpj(cnpj);
     }
 
-    function isEmpty() {
+    function isEmptyCnpj() {
         if (document.getElementById("cnpj").value == "") {
             img2.style.display = "none";
             img3.style.display = "none";
@@ -61,7 +64,12 @@ function initFetchCnpj() {
             return
         }
     }
-    isEmpty()
+    function clearDataCnpj() {
+        inputCnpj.value = "";
+        const camposInfo2 = document.querySelectorAll('.infoCnpj');
+        camposInfo2.forEach(campo => campo.innerText = "");
+    }
+    isEmptyCnpj()
 }
 initFetchCnpj()
 

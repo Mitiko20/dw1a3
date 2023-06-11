@@ -10,7 +10,7 @@ function initFetchCep() {
 
     function handleClick(event) {
         event.preventDefault();
-
+        
         function buscaCep(cep) {
             var cep = inputCep.value;
             fetch(`https://viacep.com.br/ws/${cep}/json/`)
@@ -20,6 +20,7 @@ function initFetchCep() {
                         img2.style.display = "none";
                         img3.style.display = "flex";
                         img.style.display = "none";
+                        clearDataCep(); //limpar os campos preenchidos
                     } else {
                         const nomeRua = document.getElementById('nomeRua')
                         const nomeBairro = document.getElementById('nomeBairro')
@@ -46,7 +47,7 @@ function initFetchCep() {
         buscaCep(cep);
     }
 
-    function isEmpty() {
+    function isEmptyCep() {
         if (document.getElementById("cep").value == "") {
             img2.style.display = "none";
             img3.style.display = "none";
@@ -54,11 +55,19 @@ function initFetchCep() {
             return
         }
     }
-    isEmpty()
+
+    function clearDataCep() {
+        inputCep.value = "";
+        const camposInfo = document.querySelectorAll('.info');
+        camposInfo.forEach(campo => campo.innerText = "");
+    }
+
+    isEmptyCep()
 }
+
 initFetchCep()
 
-function initModal() {
+function initModalCep() {
     const botaoAbrir = document.querySelector('[data-modal="abrir"]');
     const botaoFechar = document.querySelector('[data-modal="fechar"]');
     const containerModal = document.querySelector('[data-modal="container"]');
@@ -87,4 +96,6 @@ function initModal() {
         containerModal.addEventListener('click', cliqueFora);
     }
 }
-initModal()
+initModalCep()
+
+
