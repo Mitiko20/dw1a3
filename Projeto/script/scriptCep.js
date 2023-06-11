@@ -37,6 +37,9 @@ function initFetchCep() {
                         img2.style.display = "flex";
                         img.style.display = "none";
                         img3.style.display = "none";
+                        if (confirm("Deseja baixar todos os dados existentes desse CEP em formato Excel?")) {
+                            downloadData([body]); // Chame a função de download com os dados da resposta da API
+                        }
                     }
                 }).catch(e => {
                     img2.style.display = "none";
@@ -45,6 +48,7 @@ function initFetchCep() {
                 })
         }
         buscaCep(cep);
+    
     }
 
     function isEmptyCep() {
@@ -62,7 +66,22 @@ function initFetchCep() {
         camposInfo.forEach(campo => campo.innerText = "");
     }
 
+    function downloadData(data) {
+        const workbook = XLSX.utils.book_new();
+        const worksheet = XLSX.utils.json_to_sheet(data);
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Dados CEP");
+        const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+        const blob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "dados_cep.xlsx";
+        link.click();
+        URL.revokeObjectURL(url);
+    }
+
     isEmptyCep()
+    
 }
 
 initFetchCep()
