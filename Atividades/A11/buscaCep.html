@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styleCep.css">
+    <title>Busca CEP</title>
+</head>
+
+<body>
+    <header>
+        <h1>Busque&Encontre</h1>
+        <button><a href="index.html" id="returnMenu">Volte ao Menu</button></a>
+        <button><a href="buscaCNPJ.html" id="returnCnpj">Busque CNPJ</button></a>
+    </header>
+    
+    <main>
+        <section class="painel formulario" data-form="form">
+            <form action="" id="buscaCep">
+                <label for="cep">Digite um CEP</label>
+                <br>
+                <input type="text" name="cep" id="cep" class="borderRed">
+                <input type="button" value="Buscar" id="btnCep" data-modal="abrir">
+            </form>
+        </section>
+    
+        <section class="resultadosDados" data-form="form">
+            <div class="resultadoCep box-info">
+                <h1>Rua</h1>
+                <div id="nomeRua" class="info"></div>
+            </div>
+            <div class="resultadoCep box-info">
+                <h1>Bairro</h1>
+                <div id="nomeBairro" class="info"></div>
+            </div>
+            <div class="resultadoCep box-info">
+                <h1>Complemento</h1>
+                <div id="complemento" class="info"></div>
+            </div>
+            <div class="resultadoCep box-info">
+                <h1>IBGE</h1>
+                <div id="ibge" class="info"></div>
+            </div>
+            <div class="resultadoCep box-info">
+                <h1>Localidade</h1>
+                <div id="localidade" class="info"></div>
+            </div>
+            <div class="resultadoCep box-info">
+                <h1>UF</h1>
+                <div id="uf" class="info"></div>
+            </div>
+        </section>
+    
+        <section class="box_img">
+            <img src="./images/search-map.png" alt="Procurando localizacao" class="img1">
+            <img src="./images/founded-location.png" alt="Encontrou a localizacao" class="img2">
+            <img src="./images/error-404.png" alt="Errou o cep" class="img3">
+        </section>
+    
+        <section class="modal-container" data-modal="container">
+            <div class="modal">
+                <button data-modal="fechar" class="fechar">x</button>
+                <h1>DIGITE UM CEP</h1>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section>
+            <p>Busque&Encontre</p>
+            <p><a href="https://github.com/Mitiko20">GitHub</a></p>
+        </section>
+    </footer>
+
+    <script src="./script/scriptCep.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</body>
+</html>
