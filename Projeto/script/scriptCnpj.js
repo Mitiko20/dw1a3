@@ -1,13 +1,23 @@
-/**CNPJ**/
+/**Chamada do método fetch(): função embutida em navegadores modernos que permite 
+ * fazer solicitações HTTP para recuperar recursos de uma determinada URL. **/
 
 function initFetchCnpj() {
+    /*getElementById é método usado para selecionar um elemento HTML específico (que é o document)
+    com base no valor do atributo id desse elemento. */
     const inputCnpj = document.getElementById('cnpj');
     const btnCnpj = document.getElementById('btnCnpj')
+    /*O método querySelectorAll retorna uma lista de todos os elementos que correspondem ao seletor especificado */
     const box = document.querySelectorAll('.info')
+    /*O método querySelector retorna a primeira correspondência encontrada para o seletor especificado */
+    /*img1: Procurar
+    img2:  Encontrar
+    img3: Erro*/
     const img = document.querySelector('.img1')
     const img2 = document.querySelector('.img2')
     const img3 = document.querySelector('.img3')
 
+    /*addEventListener: usado para capturar eventos disparados por um elemento e executar um código em resposta a esses eventos.
+    Dois argumentos: o evento de clique, nesse caso, e a função que ele chama */
     btnCnpj.addEventListener('click', handleClick);
 
     function handleClick(event) {
@@ -21,7 +31,7 @@ function initFetchCnpj() {
                 .then(body => {
                     if (body.type === "bad_request") {
                         img2.style.display = "none";
-                        img3.style.display = "flex";
+                        img3.style.display = "flex"; //erro
                         img.style.display = "none";
                         clearDataCnpj(); //limpar os campos preenchidos
 
@@ -35,7 +45,7 @@ function initFetchCnpj() {
                         const bairro = document.getElementById('bairro')
                         const municipio = document.getElementById('municipio')
                         const uf = document.getElementById('uf')
-                        razao_social.innerText = body.razao_social;
+                        razao_social.innerText = body.razao_social; //como está descrito no API
                         nome_fantasia.innerText = body.nome_fantasia;
                         descricao_situacao_cadastral.innerText = body.descricao_situacao_cadastral;
                         logradouro.innerText = body.logradouro;
@@ -44,7 +54,7 @@ function initFetchCnpj() {
                         bairro.innerText = body.bairro;
                         municipio.innerText = body.municipio;
                         uf.innerText = body.uf;
-                        img2.style.display = "flex";
+                        img2.style.display = "flex"; //foi encontrado
                         img.style.display = "none";
                         img3.style.display = "none";
                         if (confirm("Deseja baixar todos os dados existentes desse CNPJ em formato Excel?")) {
@@ -54,7 +64,7 @@ function initFetchCnpj() {
                 }).catch(e => {
                     img2.style.display = "none";
                     img.style.display = "none";
-                    img3.style.display = "flex";
+                    img3.style.display = "flex"; //erro
                 })      
         }
         buscaCnpj(cnpj);
@@ -64,7 +74,7 @@ function initFetchCnpj() {
         if (document.getElementById("cnpj").value == "") {
             img2.style.display = "none";
             img3.style.display = "none";
-            img.style.display = "flex";
+            img.style.display = "flex"; //procurar
             return
         }
     }
@@ -76,23 +86,24 @@ function initFetchCnpj() {
     }
 
     function downloadData(data) {
-        const workbook = XLSX.utils.book_new();
-        const worksheet = XLSX.utils.json_to_sheet(data);
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Dados CNPJ");
-        const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+        const workbook = XLSX.utils.book_new(); //vai gerar o arquivo excel
+        const worksheet = XLSX.utils.json_to_sheet(data); //converte um array de objetos json em uma planilha de excel
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Dados CNPJ"); //fazendo append de linhas
+        const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" }); //escreve o conteúdo em um buffer do excel, pelo write()
         const blob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
         const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
+        const link = document.createElement("a"); //criar um elemento "a" ancora para ser usada para criar o link de download
         link.href = url;
         link.download = "dados_cnpj.xlsx";
         link.click();
-        URL.revokeObjectURL(url);
+        URL.revokeObjectURL(url); ////Garantia que os recursos de memória alocados para o objeto URL sejam liberados corretamente, evitando possíveis vazamentos de memória.
     }
 
     isEmptyCnpj()
 }
 initFetchCnpj()
-
+/*Um modal é uma janela flutuante que geralmente é usada para exibir informações adicionais, 
+solicitar ações do usuário ou fornecer um contexto específico dentro de uma página da web. */
 function initModalCnpj() {
     const botaoAbrir = document.querySelector('[data-modal="abrircnpj"]');
     const botaoFechar = document.querySelector('[data-modal="fecharcnpj"]');
