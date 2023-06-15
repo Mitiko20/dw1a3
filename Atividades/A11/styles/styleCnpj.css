@@ -41,7 +41,7 @@ header button{
 
 #returnMenu {
     border-left: none;
-    padding: 10px;
+    padding: 7px;
     text-align: center;
     background-color: var(--green);
     border-radius: 5px;
@@ -60,7 +60,7 @@ header button{
 
 #returnCep {
     border-left: none;
-    padding: 10px;
+    padding: 7px;
     text-align: center;
     background-color: var(--green);
     border-radius: 5px;

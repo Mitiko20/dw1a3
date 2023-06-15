@@ -57,9 +57,12 @@ function initFetchCnpj() {
                         img2.style.display = "flex"; //foi encontrado
                         img.style.display = "none";
                         img3.style.display = "none";
-                        if (confirm("Deseja baixar todos os dados existentes desse CNPJ em formato Excel?")) {
+                        //tempo para o alert
+                        setTimeout(
+                            function(){
+                                if (confirm("Deseja baixar todos os dados existentes, além dos que consta aqui, desse CNPJ em formato Excel?")) {
                             downloadData([body]); // Chame a função de download com os dados da resposta da API
-                        }
+                        }}, 2000)
                     }
                 }).catch(e => {
                     img2.style.display = "none";
